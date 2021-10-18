@@ -12,7 +12,7 @@ def home():
 
 @app.route('/your-url')
 def admin():
-    return redirect(url_for("login"))
+    return "Mehmet Akif Pinarci"
 
 if __name__ == "__main__":
     app.run(debug=True)
