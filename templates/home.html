@@ -1,8 +1,11 @@
-<h1>Url Shortener</h1>
-{% for message in get_flashed_messages() %}
-<h2>{{ message }}</h2>
-{%endfor%}
+{% extends 'base.html' %}
 
+
+{%block title %}URL Shortener{% endblock %}
+
+
+
+{%block main%}
 <form action =  "your-url" method = "post">
 
     <label for="url">Website Url: </label>
@@ -26,3 +29,17 @@
     <input type = "submit" name = "Shorten">
     
 </form>
+
+{% if codes %}
+<h2>Codes you have created</h2>
+<ul>
+
+    {%for code in codes%}
+    <a href = "{{url_for('redirect_to_url', code=code)}}">
+    <li>{{code}}</li>
+    {%endfor%}
+    </a>    
+</ul>
+{%endif%}
+
+{% endblock %}
